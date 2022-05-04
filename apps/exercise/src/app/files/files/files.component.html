@@ -1,8 +1,14 @@
 <table [dataSource]="files" class="mat-elevation-z8" mat-table>
 
-  <ng-container matColumnDef="createdName">
+  <ng-container matColumnDef="fullName">
     <th *matHeaderCellDef mat-header-cell>Creator ID</th>
-    <td *matCellDef="let element" mat-cell> {{element.createdBy}} </td>
+    <td *matCellDef="let element" mat-cell> {{element.fullName}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="fileType">
+    <th *matHeaderCellDef mat-header-cell>File Type</th>
+    <td *matCellDef="let element" mat-cell> {{element.type}} </td>
   </ng-container>
 
   <ng-container matColumnDef="createdDate">
@@ -17,6 +23,6 @@
         mat-cell> {{element.modifiedDateTime | stringToDate | date:'MMM d, y, h:mm:ss a'}} </td>
   </ng-container>
 
-  <tr *matHeaderRowDef="['createdName', 'createdDate', 'modifiedDate']" mat-header-row></tr>
-  <tr *matRowDef="let row; columns: ['createdName', 'createdDate', 'modifiedDate'];" mat-row></tr>
+  <tr *matHeaderRowDef="['fullName', 'fileType', 'createdDate', 'modifiedDate']" mat-header-row></tr>
+  <tr *matRowDef="let row; columns: ['fullName', 'fileType', 'createdDate', 'modifiedDate'];" mat-row></tr>
 </table>
