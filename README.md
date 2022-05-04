@@ -1,8 +1,6 @@
-
-
 # Foolproof
 
-This project was generated using 
+This project was generated using NX Monorepo
 
 ## How to start
 
