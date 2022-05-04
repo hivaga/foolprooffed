@@ -4,11 +4,15 @@ import { MatTableModule } from "@angular/material/table";
 import { RouterModule } from "@angular/router";
 import { StringToDatePipe } from "../shared/pipes/string-to-date.pipe";
 import { FilesComponent } from "./files/files.component";
+import { FilesResolver } from "./resolvers/files.resolver";
 
 const ROUTES = [
   {
     path: "",
-    component: FilesComponent
+    component: FilesComponent,
+    resolve: {
+      files: FilesResolver
+    }
   }
 ];
 
