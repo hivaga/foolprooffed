@@ -1,0 +1,28 @@
+{
+  "root": "apps/exercise-e2e",
+  "sourceRoot": "apps/exercise-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/exercise-e2e/cypress.json",
+        "devServerTarget": "exercise:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "exercise:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/exercise-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["exercise"]
+}
