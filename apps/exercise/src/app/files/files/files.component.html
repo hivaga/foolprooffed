@@ -1,1 +1,22 @@
-<p>files works!</p>
+<table [dataSource]="files" class="mat-elevation-z8" mat-table>
+
+  <ng-container matColumnDef="createdName">
+    <th *matHeaderCellDef mat-header-cell>Creator ID</th>
+    <td *matCellDef="let element" mat-cell> {{element.createdBy}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="createdDate">
+    <th *matHeaderCellDef mat-header-cell>Created</th>
+    <td *matCellDef="let element"
+        mat-cell> {{element.creationDateTime | stringToDate | date:'MMM d, y, h:mm:ss a'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="modifiedDate">
+    <th *matHeaderCellDef mat-header-cell>Modified</th>
+    <td *matCellDef="let element"
+        mat-cell> {{element.modifiedDateTime | stringToDate | date:'MMM d, y, h:mm:ss a'}} </td>
+  </ng-container>
+
+  <tr *matHeaderRowDef="['createdName', 'createdDate', 'modifiedDate']" mat-header-row></tr>
+  <tr *matRowDef="let row; columns: ['createdName', 'createdDate', 'modifiedDate'];" mat-row></tr>
+</table>

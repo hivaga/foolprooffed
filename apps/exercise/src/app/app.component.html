@@ -1,2 +1,11 @@
 <h1>Foolproofed Exercise</h1>
-<router-outlet></router-outlet>
+<div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="20px" style="width: 100%">
+  <div class="main-menu" fxLayout="row" fxLayoutAlign=" center" fxLayoutGap="20px">
+    <button [routerLink]="['files']" mat-raised-button routerLinkActive="active">Files</button>
+    <button [routerLink]="['users']" mat-raised-button routerLinkActive="active">Users</button>
+    <button [routerLink]="['types']" mat-raised-button routerLinkActive="active">Types</button>
+  </div>
+  <div style="width: 100%">
+    <router-outlet></router-outlet>
+  </div>
+</div>

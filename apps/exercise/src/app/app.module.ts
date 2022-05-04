@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { FlexModule } from "@angular/flex-layout";
 import { MatButtonModule } from "@angular/material/button";
 import { MatChipsModule } from "@angular/material/chips";
 import { BrowserModule } from "@angular/platform-browser";
@@ -40,8 +41,9 @@ const ROUTES = [
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule,
-    BrowserAnimationsModule, MatButtonModule, MatChipsModule, RouterModule.forRoot(ROUTES)],
+    BrowserAnimationsModule, MatButtonModule, MatChipsModule, RouterModule.forRoot(ROUTES), FlexModule],
   providers: [],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
