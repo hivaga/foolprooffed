@@ -11,6 +11,10 @@ type FileType = {
   type: "article" | "profile"
 }
 
+type User = {
+  id: number, givenName: string, familyName: string
+}
+
 @Component({
   selector: "foolproof-files",
   templateUrl: "./files.component.html",
@@ -30,11 +34,11 @@ export class FilesComponent extends BaseComponent implements OnInit {
     this.files = this.routeSnapshot.data.pipe((takeUntil(this.isDestroyed)),
       map(data => data["files"] as FileType[]),
       map(files => files.map(file => {
-        const users = this.routeSnapshot.snapshot.data["users"];
-        const user = users[file.createdBy] || { givenName: "Unknonw", familyName: "Unknown" };
+        const users: User[] = this.routeSnapshot.snapshot.data["users"];
+        const user = users.filter((user) => user.id === file.createdBy).pop() || { givenName: "-", familyName: "-" };
         return {
           fullName: `${user.givenName} ${user.familyName}`,
-          createdBy: user.createdBy,
+          createdBy: file.createdBy,
           creationDateTime: file.creationDateTime,
           modifiedDateTime: file.modifiedDateTime,
           type: file.type
