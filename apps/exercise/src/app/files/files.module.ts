@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { MatSortModule } from "@angular/material/sort";
 import { MatTableModule } from "@angular/material/table";
 import { RouterModule } from "@angular/router";
 import { StringToDatePipe } from "../shared/pipes/string-to-date.pipe";
@@ -26,6 +27,7 @@ const ROUTES = [
   imports: [
     CommonModule,
     MatTableModule,
+    MatSortModule,
     RouterModule.forChild(ROUTES)
   ]
 })

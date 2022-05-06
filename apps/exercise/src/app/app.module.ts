@@ -24,11 +24,6 @@ const ROUTES = [
       import("./users/users.module").then((m) => m.UsersModule)
   },
   {
-    path: "types",
-    loadChildren: () =>
-      import("./types/types.module").then((m) => m.TypesModule)
-  },
-  {
     redirectTo: "/files",
     path: "",
     pathMatch: "full"
